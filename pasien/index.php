@@ -14,7 +14,7 @@
     <div class="container">
         <!-- disini kontennya -->
         <div class="row">
-            <div class="col-6 m-auto mt-5">
+            <div class="col-10 m-auto mt-5">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h3 class="mb-0">Data Pasien</h3>
@@ -62,9 +62,26 @@
                                         <a href="" class="btn btn-sm btn-warning me-1">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
-                                        <a href="" class="btn btn-sm btn-danger me-1">
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<?=$row['Politeknik_ID']?>">
                                             <i class="bi bi-trash"></i>
-                                        </a>
+                                        </button>
+                                        <div class="modal fade" id="exampleModal<?=$row['Politeknik_ID']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Yakin data pasien <?=$row['Nama_PasienKlinik']?> ingin dihapus?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                <a href="hapus.php?id=<?=$row['Politeknik_ID']?>" class="btn btn-danger">Hapus</a>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        </div>
                                     </td>
                                 </tr>
                                 <?php
