@@ -20,7 +20,7 @@
             <div class="col-10 m-auto mt-5">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h3 class="mb-0">Data Pasien</h3>
+                        <h3 class="mb-0">Data Dokter</h3>
                         <a href="form.php" class="btn btn-primary">Tambah Data</a>
                     </div>
 
@@ -29,10 +29,8 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">Tanggal Lahir</th>
-                                    <th scope="col">Jenis Kelamin</th>
-                                    <th scope="col">Alamat</th>
+                                    <th scope="col">Nama Dokter</th>
+                                    <th scope="col">Nama Poli</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -42,7 +40,7 @@
                                 include('../koneksi.php');
 
                                 #2. query sql
-                                $qry = "SELECT * FROM pasien";
+                                $qry = "SELECT * FROM dokter INNER JOIN poli ON dokter.Poli_ID = poli.Poli_ID ORDER BY dokter.Dokter_ID ASC";
 
                                 #3. Menjalankan query
                                 $result = mysqli_query($koneksi, $qry);
@@ -52,42 +50,38 @@
 
                                 #4. Looping data
                                 foreach ($result as $row) {
-                                    $tgl_lahir = date_create($row['Tanggal_LahirPasien']);
-                                    $tgl_lahir = date_format($tgl_lahir, 'D, d F Y');
+
                                     ?>
                                     <tr>
                                         <th scope="row"><?= $no++ ?></th>
-                                        <td><?= $row['Nama_PasienKlinik'] ?></td>
-                                        <td><?= $tgl_lahir ?></td>
-                                        <td><?= $row['Jenis_KelaminPasien'] ?></td>
-                                        <td><?= $row['Alamat_Pasien'] ?></td>
+                                        <td><?= $row['Nama_Dokter'] ?></td>
+                                        <td><?= $row['nama_poli'] ?></td>
                                         <td>
-                                            <a href="edit.php?id=<?= $row['PasienKlinik_ID'] ?>"
-                                                class="btn btn-sm btn-warning me-1">
-                                                <i class="bi bi-pencil-square"></i>
-                                            </a>
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal<?= $row['PasienKlinik_ID'] ?>">
+                                            <a href="edit.php?id=<?= $row['Dokter_ID'] ?>" class="btn btn-info btn-sm"><i
+                                                    class="bi bi-pencil-square"></i></a>
+                                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal<?= $row['Dokter_ID'] ?>">
                                                 <i class="bi bi-trash"></i>
                                             </button>
-                                            <div class="modal fade" id="exampleModal<?= $row['PasienKlinik_ID'] ?>"
-                                                tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModal<?= $row['Dokter_ID'] ?>" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Peringatan
                                                             </h1>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                                 aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            Yakin data pasien <?= $row['Nama_PasienKlinik'] ?> ingin
+                                                            Yakin data Dokter <b><?= $row['Nama_Dokter'] ?></b> ingin
                                                             dihapus?
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
                                                                 data-bs-dismiss="modal">Batal</button>
-                                                            <a href="hapus.php?id=<?= $row['PasienKlinik_ID'] ?>"
+                                                            <a href="hapus.php?id=<?= $row['Dokter_ID'] ?>"
                                                                 class="btn btn-danger">Hapus</a>
                                                         </div>
                                                     </div>
