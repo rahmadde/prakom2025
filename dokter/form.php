@@ -42,7 +42,7 @@
                                     $qry = mysqli_query($koneksi, "SELECT * FROM poli");
                                     foreach ($qry as $row) {
                                         ?>
-                                        <option value="<?= $row['Poli_ID'] ?>"><?= $row['nama_poli'] ?></option>
+                                        <option value="<?= $row['Poli_ID'] ?>"><?= $row['Nama_Poli'] ?></option>
                                         <?php
                                     }
                                     ?>

@@ -57,20 +57,20 @@
                                     ?>
                                     <tr>
                                         <th scope="row"><?= $no++ ?></th>
-                                        <td><?= $row['Nama_PasienKlinik'] ?></td>
+                                        <td><?= $row['Nama_pasienKlinik'] ?></td>
                                         <td><?= $tgl_lahir ?></td>
                                         <td><?= $row['Jenis_KelaminPasien'] ?></td>
                                         <td><?= $row['Alamat_Pasien'] ?></td>
                                         <td>
-                                            <a href="edit.php?id=<?= $row['PasienKlinik_ID'] ?>"
+                                            <a href="edit.php?id=<?= $row['pasienKlinik_ID'] ?>"
                                                 class="btn btn-sm btn-warning me-1">
                                                 <i class="bi bi-pencil-square"></i>
                                             </a>
                                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal<?= $row['PasienKlinik_ID'] ?>">
+                                                data-bs-target="#exampleModal<?= $row['pasienKlinik_ID'] ?>">
                                                 <i class="bi bi-trash"></i>
                                             </button>
-                                            <div class="modal fade" id="exampleModal<?= $row['PasienKlinik_ID'] ?>"
+                                            <div class="modal fade" id="exampleModal<?= $row['pasienKlinik_ID'] ?>"
                                                 tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
@@ -81,13 +81,13 @@
                                                                 aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            Yakin data pasien <?= $row['Nama_PasienKlinik'] ?> ingin
+                                                            Yakin data pasien <?= $row['Nama_pasienKlinik'] ?> ingin
                                                             dihapus?
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
                                                                 data-bs-dismiss="modal">Batal</button>
-                                                            <a href="hapus.php?id=<?= $row['PasienKlinik_ID'] ?>"
+                                                            <a href="hapus.php?id=<?= $row['pasienKlinik_ID'] ?>"
                                                                 class="btn btn-danger">Hapus</a>
                                                         </div>
                                                     </div>

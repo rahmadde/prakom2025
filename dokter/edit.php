@@ -64,7 +64,7 @@ $poli = $row['Poli_ID'];
                                     foreach ($qry as $row) {
                                         ?>
                                         <option <?php echo ($poli == $row['Poli_ID']) ? 'Selected' : '' ?>
-                                            value="<?= $row['Poli_ID'] ?>"><?= $row['nama_poli'] ?></option>
+                                            value="<?= $row['Poli_ID'] ?>"><?= $row['Nama_Poli'] ?></option>
                                         <?php
                                     }
                                     ?>

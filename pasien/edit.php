@@ -12,7 +12,7 @@ $qry = mysqli_query($koneksi, "SELECT *     FROM pasien WHERE PasienKlinik_ID = 
 # 4. Memisahkan field/kolom tabel pasien menjadi data array
 $row = mysqli_fetch_array($qry);
 
-$nama = $row['Nama_PasienKlinik'];
+$nama = $row['Nama_pasienKlinik'];
 $tgl_lahir = $row['Tanggal_LahirPasien'];
 $jk = $row['Jenis_KelaminPasien'];
 $alamat = $row['Alamat_Pasien'];

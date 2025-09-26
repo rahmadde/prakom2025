@@ -55,7 +55,7 @@
                                     <tr>
                                         <th scope="row"><?= $no++ ?></th>
                                         <td><?= $row['Nama_Dokter'] ?></td>
-                                        <td><?= $row['nama_poli'] ?></td>
+                                        <td><?= $row['Nama_Poli'] ?></td>
                                         <td>
                                             <a href="edit.php?id=<?= $row['Dokter_ID'] ?>" class="btn btn-info btn-sm"><i
                                                     class="bi bi-pencil-square"></i></a>
